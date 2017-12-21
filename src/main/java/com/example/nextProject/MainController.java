@@ -1,8 +1,15 @@
 package com.example.nextProject;
 
+import com.example.nextProject.BackhandCode.Category;
+import com.example.nextProject.BackhandCode.CategoryDAO;
+import com.example.nextProject.BackhandCode.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 /**
  * Created by ubuntu on 16/12/17.
@@ -12,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 //@ComponentScan(value = "com.example")
 public class MainController {
 
-    @RequestMapping(value = {"/","/home"})
+    @RequestMapping(value = {"/", "/home"})
     public ModelAndView showHello() {
         ModelAndView mv = new ModelAndView("app");
         mv.addObject("title", "home");
@@ -25,6 +32,12 @@ public class MainController {
         ModelAndView mv = new ModelAndView("app");
         mv.addObject("title", "service");
         mv.addObject("userclickService", "true");
+
+        Product product = new Product();
+        product.setSupplierId(4);
+        product.setActive(true);
+
+        mv.addObject("mproduct", product);
         return mv;
     }
 
@@ -45,4 +58,11 @@ public class MainController {
     }
 
 
+//    @Autowired
+//    CategoryDAO categoryDAO;
+//
+//    @ModelAttribute("categories")
+//    public List<Category> getCategories() {
+//        return categoryDAO.list();
+//    }
 }

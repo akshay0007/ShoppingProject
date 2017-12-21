@@ -24,7 +24,7 @@ public class HiberanateConfig {
     private final static String DATABASE_USERNAME = "root";
     private final static String DATABASE_PASSWORD = "root";
 
-    @Bean
+    @Bean("dataSource")
     public DataSource getDataSource() {
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setDriverClassName(DATABASE_DRIVER);
