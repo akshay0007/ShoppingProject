@@ -55,6 +55,15 @@
 <%--content data--%>
 
 <div class="container">
+    <c:if test="${not empty message}">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="alert alert-danger">
+                        ${message}
+                </div>
+            </div>
+        </div>
+    </c:if>
     <div class="row">
         <div class="col-md-offset-3 col-md-6">
             <div class="panel panel-primary">
@@ -65,7 +74,8 @@
         </div>
 
         <div class="panel-body">
-            <form action="${contextRoot}/login" method="POST" class="form-horizontal"
+            <form action="${contextRoot}/csrfLogin" method="POST"
+                  class="form-horizontal"
                   id="loginForm"
             >
                 <div class="form-group">
@@ -83,6 +93,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-4 col-md-8">
                         <input type="submit" value="Login" class="btn btn-primary"/>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     </div>
                 </div>
             </form>
@@ -96,6 +107,7 @@
 <!-- Bootstrap core JavaScript -->
 <script src="${js}/jquery.min.js"></script>
 <script src="${js}/bootstrap.bundle.min.js"></script>
+<script src="${js}/mainclass.js"></script>
 
 </body>
 

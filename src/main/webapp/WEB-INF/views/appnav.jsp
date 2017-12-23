@@ -22,6 +22,31 @@
                 <li class="contact">
                     <a href="${contextRoot}/contact">Contact</a>
                 </li>
+
+                <li class="dropdown">
+                    <a href="javascript:void(0)"
+                       class="btn btn-default dropdown-toggle"
+                       id="dropdownMenu1"
+                       data-toggle="dropdown">
+                        fullname
+                        <span class="caret"/>
+                    </a>
+                </li>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="${contextRoot}/cart">
+                            <span class="glyphicon glyphicon-shopping-cart"/>
+                            <span class="badge">0</span>
+                            0.0
+                        </a>
+                    </li>
+                    <li class="divder" role="separator"/>
+                    <li>
+                        <a href="${contextRoot}/logout">logout</a>
+                    </li>
+
+                </ul>
             </ul>
         </div>
     </div>
